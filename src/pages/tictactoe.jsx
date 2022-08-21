@@ -48,7 +48,7 @@ function TicTacToe(props) {
 
   return (
     <div>
-      <Link href="/">
+      <Link href="./">
       <button className="p-2 m-2 h4 btn btn-sm btn-primary">&larr; Go Back</button>
       </Link>
       <center>
