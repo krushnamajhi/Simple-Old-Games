@@ -17,7 +17,7 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          <Link href="/tictactoe">
+          <Link href="./tictactoe">
           <a className={styles.card}>
             <h2>Tic Tac Toe &rarr;</h2>
             <p>Click here to play Tictac toe.</p>
