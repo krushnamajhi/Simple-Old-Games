@@ -38,7 +38,7 @@ function TicTacToe(props) {
     history.map((_step, move) => {
       const destination = move ? "Go to move# " + move : "Go to Start";
       return (
-        <div key={key} className="p-1">
+        <div key={move} className="p-1">
           <li key={move}>
             <button key={move} className="btn btn-sm btn-success" onClick={() => jumpTo(move)}>{destination}</button>
           </li>
