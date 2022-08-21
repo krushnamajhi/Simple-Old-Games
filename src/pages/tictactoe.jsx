@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Board from "../comps/tictactoe/board";
 import { calculateWinner } from "../utils/TictactoeUtils";
 import Message from "../comps/message"
+import Link from 'next/link'
+
 
 const style = {
   width: "200px",
@@ -36,9 +38,9 @@ function TicTacToe(props) {
     history.map((_step, move) => {
       const destination = move ? "Go to move# " + move : "Go to Start";
       return (
-        <div className="p-1">
+        <div key={key} className="p-1">
           <li key={move}>
-            <button className="btn btn-sm btn-success" onClick={() => jumpTo(move)}>{destination}</button>
+            <button key={move} className="btn btn-sm btn-success" onClick={() => jumpTo(move)}>{destination}</button>
           </li>
         </div>
       );
@@ -46,7 +48,9 @@ function TicTacToe(props) {
 
   return (
     <div>
-      <a className="p-2 m-2 h4 btn btn-sm btn-primary" href="/">&larr; Go Back</a>
+      <Link href="/">
+      <button className="p-2 m-2 h4 btn btn-sm btn-primary">&larr; Go Back</button>
+      </Link>
       <center>
         <h1>Tic Tac Toe</h1>
         <Message message = {winner

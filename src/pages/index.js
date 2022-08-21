@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -12,14 +13,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="/">Old Games Collection</a>
+          Welcome to <Link href="/">Old Games Collection</Link>
         </h1>
 
         <div className={styles.grid}>
-          <a href="/tictactoe" className={styles.card}>
+          <Link href="/tictactoe">
+          <a className={styles.card}>
             <h2>Tic Tac Toe &rarr;</h2>
             <p>Click here to play Tictac toe.</p>
           </a>
+          </Link>
         </div>
       </main>
     </div>
