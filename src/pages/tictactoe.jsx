@@ -3,6 +3,7 @@ import Board from "../comps/tictactoe/board";
 import { calculateWinner } from "../utils/TictactoeUtils";
 import Message from "../comps/message"
 import Link from 'next/link'
+import Head from 'next/head'
 
 
 const style = {
@@ -48,6 +49,10 @@ function TicTacToe(props) {
 
   return (
     <div>
+        <Head>
+        <title>Tic Tac Toe</title>
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_FAVICON}/favicon.ico`} />
+      </Head>
       <Link href="./">
       <button className="p-2 m-2 h4 btn btn-sm btn-primary">&larr; Go Back</button>
       </Link>
