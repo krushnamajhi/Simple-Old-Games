@@ -15,7 +15,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <Link href="/">Old Games Collection</Link>
         </h1>
-
+        <span className='h5 float-right'>-By Krushna</span>
         <div className={styles.grid}>
           <Link href="./tictactoe">
           <a className={styles.card}>
@@ -31,9 +31,6 @@ export default function Home() {
           </Link>
         </div>
       </main>
-      <footer>
-        By Krushna Dipayan majhi
-      </footer>
     </div>
   )
 }

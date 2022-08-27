@@ -70,7 +70,6 @@ function Flames(props) {
   };
 
   function getFlamesResults(){
-    console.log(uncommonChars,uncommonChars.length, uncommonChars.length % 6)
     return uncommonChars.length % 6;
   }
 

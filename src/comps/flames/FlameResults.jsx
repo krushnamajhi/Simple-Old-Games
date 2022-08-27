@@ -18,13 +18,13 @@ const crossedStyle = {
 function FlameResults({ result }) {
   const flames = ["FREINDS", "LOVERS", "ADMIRERS", "MARRIAGE", "SISTER"];
   return (
-    <center className="h1 m-5 p-3">
+    <div className="h1 m-5 p-3">
       {flames.map((m, i) => (
         <span className="px-1 btn btn" title={m} style={i == result ? crossedStyle : style}>
           {i == result ? m[0] + " - " + m : m[0]}
         </span>
       ))}
-    </center>
+    </div>
   );
 }
 
