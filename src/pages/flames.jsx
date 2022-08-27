@@ -8,7 +8,7 @@ const boardstyle = {
   width: "400px",
 };
 
-function flames(props) {
+function Flames(props) {
   const [name, setName] = useState("");
   const [soulmateName, setSoulmateName] = useState("");
   const [commonChars, setCommonChars] = useState([]);
@@ -125,4 +125,4 @@ function flames(props) {
   );
 }
 
-export default flames;
+export default Flames;
