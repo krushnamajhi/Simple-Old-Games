@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Board from "../comps/tictactoe/board";
 import { calculateWinner } from "../utils/TictactoeUtils";
 import Message from "../comps/message"
-import Link from 'next/link'
-import Head from 'next/head'
+import HeadSetup from "../comps/HeadSetup";
 
 
 const style = {
@@ -49,16 +48,9 @@ function TicTacToe(props) {
 
   return (
     <div>
-        <Head>
-        <title>Tic Tac Toe</title>
-        <link rel="icon" href={`${process.env.NEXT_PUBLIC_FAVICON}/favicon.ico`} />
-      </Head>
-      <Link href="./">
-      <button className="p-2 m-2 h4 btn btn-sm btn-primary">&larr; Go Back</button>
-      </Link>
+      <HeadSetup title = "Tic Tac Toe" header = "Tic Tac Toe"/>
       <center>
-        <h1>Tic Tac Toe</h1>
-        <Message message = {winner
+      <Message message = {winner
             ? "Winner is " + winner
             : "Next Player: " + (xIsNext ? "X" : "O")} error = {false}
             />

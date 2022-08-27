@@ -23,8 +23,17 @@ export default function Home() {
             <p>Click here to play Tictac toe.</p>
           </a>
           </Link>
+          <Link href="./flames">
+          <a className={styles.card}>
+            <h2>Flames &rarr;</h2>
+            <p>Click here to play Flames.</p>
+          </a>
+          </Link>
         </div>
       </main>
+      <footer>
+        By Krushna Dipayan majhi
+      </footer>
     </div>
   )
 }
