@@ -16,7 +16,7 @@ const crossedStyle = {
 };
 
 function FlameResults({ result }) {
-  const flames = ["FREINDS", "LOVERS", "ADMIRERS", "MARRIAGE", "SISTER"];
+  const flames = ["FREINDS", "LOVERS", "ADMIRERS", "MARRIAGE", "ENEMIES", "SISTER"];
   return (
     <div className="h1 m-5 p-3">
       {flames.map((m, i) => (
