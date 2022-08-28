@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const style = {
   borderRadius: "1px",
   fontWeight: "700",
-  fontSize:"20px"
+  fontSize: "20px",
 };
 
 const crossedStyle = {
@@ -11,19 +11,57 @@ const crossedStyle = {
   borderRadius: "1px",
   background: "darkgreen",
   color: "white",
-  fontSize:"21px",
+  fontSize: "21px",
   fontWeight: "700",
 };
 
-function FlameResults({ result }) {
-  const flames = ["FREINDS", "LOVERS", "ADMIRERS", "MARRIAGE", "ENEMIES", "SISTER"];
+function FlameResults({ uncommonChars }) {
+  const flames = [
+    "FREINDS",
+    "LOVERS",
+    "ADMIRERS",
+    "MARRIAGE",
+    "ENEMIES",
+    "SISTER",
+  ];
+  const [result, setResult] = useState(getFlamesResults());
+
+  useEffect(() => {
+    setResult(getFlamesResults())
+  })
+
+  function check(i) {
+    return i == result - 1;
+  }
+
+  function isAllCommon(){
+    return uncommonChars.length == 0 || uncommonChars == null || uncommonChars == undefined
+  }
+
+  function getFlamesResults() {
+    if(isAllCommon()){
+      return 0;
+    }
+    else if (uncommonChars.length % 6 == 0) {
+      return 6;
+    } else return uncommonChars.length % 6;
+  }
+
   return (
-    <div className="h1 m-5 p-3">
+    <div>
+      <div className="shadow p-3 mb-5 bg-white rounded h1 m-5 p-3">
       {flames.map((m, i) => (
-        <span className="px-1 btn btn" title={m} style={i == result ? crossedStyle : style}>
-          {i == result ? m[0] + " - " + m : m[0]}
+        <span
+          className="px-1 btn btn"
+          title={m}
+          style={check(i) ? crossedStyle : style}
+        >
+          {check(i) ? m[0] + " - " + m : m[0]}
         </span>
       ))}
+      </div>
+      {isAllCommon()?
+      <div className="h5">Keep distance, You're nobody</div>:null}
     </div>
   );
 }

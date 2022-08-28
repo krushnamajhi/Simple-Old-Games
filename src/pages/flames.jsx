@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Message from "../comps/message";
 import HeadSetup from "../comps/HeadSetup";
 import Name from "../comps/flames/Name";
@@ -9,12 +9,19 @@ const boardstyle = {
 };
 
 function Flames(props) {
-  const [name, setName] = useState("");
-  const [soulmateName, setSoulmateName] = useState("");
+  const [inputName, setInputName] = useState("")
+  const [inputSoulMatename, setInputSoulmateName] = useState("")
+  const [name, setName] = useState(inputName.replace(" ",""));
+  const [soulmateName, setSoulmateName] = useState(inputSoulMatename.replace(" ", ""));
   const [commonChars, setCommonChars] = useState([]);
   const [uncommonChars, setunCommonChars] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [validation, setValidation] = useState("");
+
+  useEffect(()=>{
+    setName(inputName.replace(" ",""))
+    setSoulmateName(inputSoulMatename.replace(" ", ""))
+  })
 
   const compare = () => {
     let common = [];
@@ -41,11 +48,11 @@ function Flames(props) {
   };
 
   const handleClick = () => {
-    if (name == "" || soulmateName == "") {
-      setValidation("Please enter Both Names");
+    if (name == "") {
+      setValidation("Please enter Your Name");
       return;
-    }else if(name.includes(" ") || soulmateName.includes(" ")){
-      setValidation("Please enter only first name")
+    }else if(soulmateName == ""){
+      setValidation("Please enter Your Soulmate's name")
       return;
     } 
     else {
@@ -56,11 +63,11 @@ function Flames(props) {
   };
 
   const handleNameChange = (e) => {
-    setName(e.target.value.toLocaleUpperCase());
+    setInputName(e.target.value.toLocaleUpperCase());
   };
 
   const handleSoulmateNameChange = (e) => {
-    setSoulmateName(e.target.value.toLocaleUpperCase());
+    setInputSoulmateName(e.target.value.toLocaleUpperCase());
   };
 
   const handleReset = () => {
@@ -69,16 +76,12 @@ function Flames(props) {
     setSoulmateName("");
   };
 
-  function getFlamesResults(){
-    return uncommonChars.length % 6;
-  }
-
   const renderNames = () => {
     return (
       <div style={boardstyle}>
         <Name clientName={name} cross={commonChars} />
         <Name clientName={soulmateName} cross={commonChars} />
-        <FlameResults result={getFlamesResults()} />
+        <FlameResults uncommonChars={uncommonChars} />
       </div>
     );
   };
@@ -92,16 +95,18 @@ function Flames(props) {
           <input
             className="m-2"
             placeholder="Enter your Name"
-            value={name}
+            value={inputName}
             onChange={handleNameChange}
             disabled={showResults}
+            maxLength="30"
           />
           <input
             className="m-2"
             placeholder="Enter your Soulmate Name"
-            value={soulmateName}
+            value={inputSoulMatename}
             onChange={handleSoulmateNameChange}
             disabled={showResults}
+            maxLength="30"
           />
         </div>
         <button
