@@ -50,10 +50,10 @@ function TicTacToe(props) {
   const renderMoves = () => {
     return (
       <div className="p-1 text-center">
-        <button className="btn btn-sm btn-danger mx-1 px-4" onClick={() => jumpTo(stepNumber - 1)} disabled = {stepNumber == 0}>Undo</button>
-        <button className="btn btn-sm btn-info mx-1 px-4" onClick={() => jumpTo(stepNumber + 1)} disabled = {stepNumber == history.length -1}>Redo</button>
+        <button className="btn btn-danger my-2 mx-1" style={{width:"47%"}} onClick={() => jumpTo(stepNumber - 1)} disabled = {stepNumber == 0}>Undo</button>
+        <button className="btn btn-info my-2 mx-1" style={{width:"47%"}} onClick={() => jumpTo(stepNumber + 1)} disabled = {stepNumber == history.length -1}>Redo</button>
         <br/>
-        <button className="btn btn-success m-2 px-4" onClick={() => jumpTo(0, true)}>Go to Start</button>
+        <button className="btn btn-success my-2" style={{width:"98%"}} onClick={() => jumpTo(0, true)}>Go to Start</button>
       </div>
     );
   };
