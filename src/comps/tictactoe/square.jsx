@@ -3,7 +3,7 @@ import React from 'react';
 const style = {
     background : 'lightgreen',
     border : '2px solid darkgreen',
-    fontSize: '30px',
+    fontSize: '50px',
     fontWeight: '800',
     cursor: 'pointer',
     outline: 'none'

@@ -3,11 +3,11 @@ import Character from "./Character";
 
 function Name({ clientName, cross }) {
   const [nameArr, setNameArr] = useState(
-    Array.from(clientName.replace(" ", "").toUpperCase())
+    Array.from(clientName)
   );
   
   return (
-    <div className="m-3">
+    <div className="m-4">
       {nameArr.map((ch, index) => (
         <Character key={ch + index} ch={ch} iscrossed = {cross.includes(ch)}/>
       ))}
