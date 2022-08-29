@@ -13,7 +13,8 @@ function TicTacToe(props) {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [xIsNext, setXIsNext] = useState(true);
   const [stepNumber, setStepNumber] = useState(0);
-  const winner = calculateWinner(history[stepNumber]);
+  const result = calculateWinner(history[stepNumber])
+  const winner = result[0];
 
   const handleClick = (i) => {
     const timeInHistory = history.slice(0, stepNumber + 1);
@@ -34,18 +35,6 @@ function TicTacToe(props) {
     if(clear)
       setHistory([Array(9).fill(null)])
   };
-
-  // const renderMoves = () =>
-  //   history.map((_step, move) => {
-  //     const destination = move ? "Go to move# " + move : "Go to Start";
-  //     return (
-  //       <div key={move} className="p-1">
-  //         <li key={move}>
-  //           <button key={move} className="btn btn-sm btn-success" onClick={() => jumpTo(move)}>{destination}</button>
-  //         </li>
-  //       </div>
-  //     );
-  //   });
 
   const renderMoves = () => {
     return (
@@ -70,15 +59,15 @@ function TicTacToe(props) {
           }
           error={false}
         />
-        <h2 className="m-3">
+        <h3 className="m-2" style={{height:"40px"}}>
           {winner
             ? "Winner is " + winner + "!!"
             : history[stepNumber].includes(null)
             ? ""
             : "Draw!!"}
-        </h2>
+        </h3>
       </center>
-      <Board squares={history[stepNumber]} onClick={handleClick} />
+      <Board squares={history[stepNumber]} line={result[1]} onClick={handleClick} />
       <div style={style}>{renderMoves()}</div>
     </div>
   );
