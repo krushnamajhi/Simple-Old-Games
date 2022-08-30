@@ -5,7 +5,7 @@ import Name from "../comps/flames/Name";
 import FlameResults from "../comps/flames/FlameResults";
 
 const boardstyle = {
-  width: "400px",
+  width: "350px",
 };
 
 function Flames(props) {
@@ -89,9 +89,9 @@ function Flames(props) {
   return (
     <div>
       <HeadSetup title="Flames" header="F.L.A.M.E.S" />
-      <center className="container">
+      <center className="container" style = {boardstyle}>
         <Message message={validation} error={validation != ""} />
-        <div style={boardstyle} className="container row">
+        <div className="container row">
           <input
             className="m-2"
             placeholder="Enter your Name"
@@ -110,16 +110,18 @@ function Flames(props) {
           />
         </div>
         <button
-          className="btn btn-success m-2"
+          className="btn btn-success my-2 mx-1"
           onClick={handleClick}
           disabled={showResults}
+          style={{width:"42%"}}
         >
           Match
         </button>
         <button
-          className="btn btn-success m-2"
+          className="btn btn-success my-2 mx-1"
           onClick={handleReset}
           disabled={!showResults}
+          style={{width:"42%"}}
         >
           Change Names
         </button>

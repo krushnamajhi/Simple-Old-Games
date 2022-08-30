@@ -49,7 +49,7 @@ function FlameResults({ uncommonChars }) {
 
   return (
     <div>
-      <div className="shadow p-3 mb-5 bg-white rounded h1 m-5 p-3">
+      <div className="shadow p-1 my-4 mb-3 bg-white rounded h2 m-3 p-2">
       {flames.map((m, i) => (
         <span
           className="px-1 btn btn"

@@ -17,7 +17,7 @@ const crossedStyle = {
 
 function Character({ch, iscrossed}) {
     return (
-           <span className='h4 mx-1 my-2 px-2 btn' style={iscrossed?crossedStyle : style}>{ch}</span> 
+           <span className='h5 mx-1 my-2 px-2 btn' style={iscrossed?crossedStyle : style}>{ch}</span> 
     );
 }
 

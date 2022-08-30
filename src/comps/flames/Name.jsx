@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Character from "./Character";
 
 function Name({ clientName, cross }) {
-  const [nameArr, setNameArr] = useState(
-    Array.from(clientName)
-  );
+  const nameArr = Array.from(clientName);
   
   return (
     <div className="m-4">
