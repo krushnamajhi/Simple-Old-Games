@@ -31,7 +31,7 @@ export default function Home() {
           </Link>
           <Link href="./snake">
           <a className={styles.card}>
-            <h2>Flames &rarr;</h2>
+            <h2>Snake &rarr;</h2>
             <p>Click here to play Snake.</p>
           </a>
           </Link>
