@@ -30,7 +30,7 @@ function MoveButtons({ moveSnake, pause }) {
             <td
               colSpan={2}
               onClick={() => moveSnake({ keyCode: 38 })}
-              style={{...tdStyle, width: "30%", height: "50px"}}
+              style={{...tdStyle, width: "30%", height: "85px"}}
             >
               UP
             </td>
@@ -46,7 +46,7 @@ function MoveButtons({ moveSnake, pause }) {
             <td
               colSpan={2}
               onClick={() => moveSnake({ keyCode: 40 })}
-              style={{...tdStyle,width: "30%", height: "50px"}}
+              style={{...tdStyle,width: "30%", height: "70px"}}
             >
               DOWN
             </td>
