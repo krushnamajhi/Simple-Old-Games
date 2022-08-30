@@ -10,6 +10,8 @@ import {
 import HeaderSetup from '../comps/HeadSetup'
 import { useInterval } from '../utils/snake/useInterval';
 
+const tdClasses = "p-4 border border-dark bg-success text-light text-center"
+
 function Snake(props) {
 
     const canvasRef = useRef(null);
@@ -105,6 +107,21 @@ function Snake(props) {
                         height={`${CANVAS_SIZE[1]}px`} />
                     <br />
                     <button className='btn btn-primary m-3' onClick={startGame}>Start Game</button>
+                    <br />
+                    <center>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td className={tdClasses} rowSpan={2} onClick={() => moveSnake({keyCode: 37})}>LEFT</td>
+                            <td className={tdClasses} colSpan={2} onClick={() => moveSnake({keyCode: 38})}>UP</td>
+                            <td className={tdClasses} rowSpan={2} onClick={() => moveSnake({keyCode: 39})}>RIGHT</td>
+                        </tr>
+                        <tr>
+                            <td className={tdClasses} colSpan={2} onClick={() => moveSnake({keyCode: 40})}>DOWN</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </center>
                 </div>
             </div>
         </div>
