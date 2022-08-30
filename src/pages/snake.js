@@ -9,6 +9,8 @@ import {
 } from '../utils/snake/constants'
 import HeaderSetup from '../comps/HeadSetup'
 import { useInterval } from '../utils/snake/useInterval';
+import MoveButtons from '../comps/snake/MoveButtons';
+import TriggerButtons from '../comps/snake/TriggerButtons';
 
 const tdClasses = "p-4 border border-dark bg-success text-light text-center"
 
@@ -21,19 +23,36 @@ function Snake(props) {
     const [dir, setDir] = useState([0, -1])
     const [speed, setSpeed] = useState(null)
     const [score, setScore] = useState(0)
+    const [pause, setPause] = useState(false)
+    const [speedBeforePause, setSpeedbeforePause] = useState(null)
+    const [started, setStarted] = useState(false);
 
     const startGame = () => {
+        setStarted(true)
+        setPause(false)
         setSnake(SNAKE_START);
         setApple(APPLE_START)
         setDir([0, -1])
         setSpeed(SPEED)
         setGameOver(false)
         setScore(0)
-
     }
+
+    const pauseGame = () => {
+        setPause(true);
+        setSpeedbeforePause(speed);
+        setSpeed(null)
+    }
+
+    const resumeGame = () => {
+        setPause(false);
+        setSpeed(speedBeforePause);
+    }
+
     const endGame = () => {
         setSpeed(null)
         setGameOver(true)
+        setStarted(false)
     }
     const moveSnake = ({ keyCode }) => {
         if (keyCode >= 37 && keyCode <= 40) {
@@ -106,22 +125,9 @@ function Snake(props) {
                         width={`${CANVAS_SIZE[0]}px`}
                         height={`${CANVAS_SIZE[1]}px`} />
                     <br />
-                    <button className='btn btn-primary m-3' onClick={startGame}>Start Game</button>
+                    <TriggerButtons startGame={startGame} pauseGame={pauseGame} resumeGame={resumeGame} pause={pause} started = {started}/>
                     <br />
-                    <center>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td className={tdClasses} rowSpan={2} onClick={() => moveSnake({keyCode: 37})}>LEFT</td>
-                            <td className={tdClasses} colSpan={2} onClick={() => moveSnake({keyCode: 38})}>UP</td>
-                            <td className={tdClasses} rowSpan={2} onClick={() => moveSnake({keyCode: 39})}>RIGHT</td>
-                        </tr>
-                        <tr>
-                            <td className={tdClasses} colSpan={2} onClick={() => moveSnake({keyCode: 40})}>DOWN</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </center>
+                    <MoveButtons moveSnake={moveSnake} pause={pause}/>
                 </div>
             </div>
         </div>
